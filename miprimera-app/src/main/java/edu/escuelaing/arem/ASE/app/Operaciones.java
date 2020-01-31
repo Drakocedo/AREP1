@@ -4,28 +4,27 @@ import java.util.List;
 
 public class Operaciones {
 	
-	public static double mean(List<Double> datos) {
-        double cont = 0;
-        for (double n : datos) {
-            cont += n;
+public static double media(List<Double> datos) {
+        double con = 0;
+        for (double k : datos) {
+            con += k;
         }
-        double promedio = cont /= datos.size();
+        double promedio = con /= datos.size();
         return promedio;
     }
 
     /**
      * @param datos
-     * @return
+     * @return desviacion estandar de los datos
      */
-    public static double stdDev(List<Double> datos) {
+    public static double desviacion(List<Double> datos) {
         int size = datos.size();
-        double cont = 0;
+        double con = 0;
 
         for (double n : datos) {
-            cont += Math.pow((n - mean(datos)), 2);
+            con += Math.pow((n - media(datos)), 2);
         }
-        cont /= (size - 1);
-        return Math.sqrt(cont);
+        con /= (size - 1);
+        return Math.sqrt(con);
     }
 }
-

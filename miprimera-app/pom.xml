@@ -16,6 +16,12 @@ http://maven.apache.org/maven-v4_0_0.xsd">
   <version>4.11</version>
   <scope>test</scope>
  </dependency>
+  <dependency>
+      <groupId>org.decimal4j</groupId>
+      <artifactId>decimal4j</artifactId>
+      <version>1.0.3</version>
+      <scope>test</scope>
+    </dependency>
  </dependencies>
  <build>
     <plugins>

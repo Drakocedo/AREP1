@@ -2,57 +2,65 @@ package edu.escuelaing.arem.ASE.app;
 
 
 
+import static edu.escuelaing.arem.ASE.app.Operaciones.desviacion;
+import static edu.escuelaing.arem.ASE.app.Operaciones.media;
 import static org.junit.Assert.assertEquals;
 
-import java.text.DecimalFormat;
-import edu.escuelaing.arem.ASE.app.Operaciones;
-import edu.escuelaing.arem.ASE.app.LinkedList;
-import org.junit.Test;
+import org.decimal4j.util.DoubleRounder;
 
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
 /**
  * Unit test for simple App.
  */
 public class AppTest {
-@Test
-public void testMean(){
-    DecimalFormat df = new DecimalFormat("#.00");
-    LinkedList<Double> datos = new LinkedList<Double>();
-    datos.add(15.0);
-    datos.add(69.9);
-    datos.add(6.5);
-    datos.add(22.4);
-    datos.add(28.4);
-    datos.add(65.9);
-    datos.add(19.4);
-    datos.add(198.7);
-    datos.add(38.8);
-    datos.add(138.2);
-    double mean = Operaciones.mean(datos);
-    String res = df.format(mean);
-    double r = 60.32;
-    String res1 = df.format(r);
-    assertEquals(res1,res);
-}
 
-@Test
-public void testStdDev(){
-    DecimalFormat df = new DecimalFormat("#.00");
-    LinkedList<Double> datos = new LinkedList<Double>();
-    datos.add(160d);
-    datos.add(591d);
-    datos.add(114d);
-    datos.add(229d);
-    datos.add(230d);
-    datos.add(270d);
-    datos.add(128d);
-    datos.add(1657d);
-    datos.add(624d);
-    datos.add(1503d);
-    double std = Operaciones.stdDev(datos);
-    String res = df.format(std);
-    double r = 572.03;
-    String res1 = df.format(r);
-    assertEquals(res1,res);
-}
+    @Test
+    public void pruebaMediaDesviacion1(){
+        LinkedList<Double> linkedList = new LinkedList<>();
+        linkedList.add((double)145);
+        linkedList.add((double)546);
+        linkedList.add((double)84);
+        linkedList.add((double)5694);
+        linkedList.add((double)494);
+        linkedList.add((double)68546);
+        linkedList.add((double)5464);
+        linkedList.add((double)12);
+        linkedList.add((double)134);
+        linkedList.add((double)13214);
+        double med = media(linkedList);
+        double std = desviacion(linkedList);
+   
+        assertEquals(9433.3, DoubleRounder.round(med, 2), 0.0);
+        assertEquals(21203.14, DoubleRounder.round(std, 2), 0.0);
+       
+     
+     
+        
+    }
+    
+        @Test
+    public void pruebaMediaDesviacion2(){
+        LinkedList<Double> linkedList = new LinkedList<>();
+        linkedList.add(23.5);
+        linkedList.add(56.5);
+        linkedList.add(87.2);
+        linkedList.add(95.1);
+        linkedList.add(32.12);
+        linkedList.add(46.8);
+        linkedList.add(54.4);
+        linkedList.add(33.2);
+        linkedList.add(113.4);
+        linkedList.add(1414.14);
+        double med = media(linkedList);
+        double std = desviacion(linkedList);
+        
+        assertEquals(195.64, DoubleRounder.round(med, 2), 0.0);
+        assertEquals(429.16, DoubleRounder.round(std, 2), 0.0);
+       
+     
+     
+        
+    }
 }
